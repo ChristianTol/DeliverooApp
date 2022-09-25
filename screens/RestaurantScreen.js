@@ -11,8 +11,12 @@ import {
     StarIcon 
 } from 'react-native-heroicons/solid';
 import DishRow from '../components/DishRow';
+import BasketIcon from '../components/BasketIcon';
+import { useSelector } from 'react-redux';
+import { selectBasketItems } from '../features/basketSlice';
 
 const RestaurantScreen = () => {
+  const items = useSelector(selectBasketItems);
   const navigation = useNavigation();
 
   const { 
@@ -37,6 +41,9 @@ const RestaurantScreen = () => {
   }, []);
 
   return (
+    <>
+    <BasketIcon />
+
     <ScrollView>
       <View className="relative">
         <Image 
@@ -81,7 +88,7 @@ const RestaurantScreen = () => {
         </TouchableOpacity>
       </View>
 
-      <View>
+      <View className="pb-36">
         <Text className="px-4 pt-6 mb-3 font-bold text-xl">Menu</Text>
         
         {/* Dishrows */}
@@ -97,6 +104,7 @@ const RestaurantScreen = () => {
         ))}
       </View>
     </ScrollView>
+    </>
   )
 }
 
