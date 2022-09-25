@@ -99,19 +99,21 @@ const BasketScreen = () => {
           <View className="flex-row justify-between">
             <Text className="text-gray-400">Delivery Fee</Text>
             <Text className="text-gray-400">
-              <Currency quantity={basketTotal < 25 ? 2.5 : 0} currency="EUR" />
+              <Currency quantity={basketTotal < 25 ? 2.99 : 0} currency="EUR" />
             </Text>
           </View>
 
           <View className="flex-row justify-between">
             <Text>Order Total</Text>
             <Text className="font-extrabold">
-              <Currency quantity={basketTotal < 25 ? basketTotal + 2.5 : basketTotal} currency="EUR" />
+              <Currency quantity={basketTotal < 25 ? basketTotal + 2.99 : basketTotal} currency="EUR" />
             </Text>
           </View>
 
-          <TouchableOpacity className="rounded-lg bg-[#00CCBB] p-4">
-            <Text className="text-center text-white text-lg font-bold">Place Order</Text>
+          <TouchableOpacity onPress={() => navigation.navigate("PreparingOrderScreen")} className="rounded-lg bg-[#00CCBB] p-4">
+            <Text className="text-center text-white text-lg font-bold">
+              Place Order
+            </Text>
           </TouchableOpacity>
         </View>
       </View>
